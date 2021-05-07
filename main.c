@@ -43,8 +43,8 @@ static inline void initTimer0(void)
 {
 	TCCR0A = (1<<WGM01) | (1<<WGM00);
 	TCCR0B = (1<<CS00) | (1<<CS01);
-	TCCR0A |= (1<<COM0A1);			// OCR0A (Grønn RGB) 
-	TCCR0A |= (1<<COM0B1);			// OCR0B (Rød LED)
+	TCCR0A |= (1<<COM0A1);			// OCR0A (GrÃ¸nn RGB) 
+	TCCR0A |= (1<<COM0B1);			// OCR0B (RÃ¸d LED)
 }
 
 static inline void initTimer1(void)
@@ -52,8 +52,8 @@ static inline void initTimer1(void)
 	TCCR1A |= (1<<WGM10);
 	TCCR1B |= (1<<WGM12);
 	TCCR1B |= (1<<CS11);
-	TCCR1A |= (1<<COM1A1);			// OCR1A (Blå RGB)
-	TCCR1A |= (1<<COM1B1);			// OCR1B (Rød RGB)
+	TCCR1A |= (1<<COM1A1);			// OCR1A (BlÃ¥ RGB)
+	TCCR1A |= (1<<COM1B1);			// OCR1B (RÃ¸d RGB)
 }
 
 int main(void)
@@ -65,16 +65,16 @@ int main(void)
 	initInterrupt0();
 	initInterrupt1();
 	
-	DDRB |= (1<<PINB0);			// Blå LED
-	DDRB |= (1<<PINB1);			// Blå RGB
-	DDRB |= (1<<PINB2);			// Rød RGB
+	DDRB |= (1<<PINB0);			// BlÃ¥ LED
+	DDRB |= (1<<PINB1);			// BlÃ¥ RGB
+	DDRB |= (1<<PINB2);			// RÃ¸d RGB
 	
-	DDRD |= (1<<PIND4);			// Grønn LED
-	DDRD |= (1<<PIND5);			// Rød LED
-	DDRD |= (1<<PIND6);			// Grønn RGB
+	DDRD |= (1<<PIND4);			// GrÃ¸nn LED
+	DDRD |= (1<<PIND5);			// RÃ¸d LED
+	DDRD |= (1<<PIND6);			// GrÃ¸nn RGB
 	
-	PORTD |= (1<<PIND3);		// Knapp lys opp
-	PORTD |= (1<<PIND2);		// Knapp lys ned
+	PORTD |= (1<<PIND3);			// Knapp lys opp
+	PORTD |= (1<<PIND2);			// Knapp lys ned
 	
 	OCR0B = 0;
 	
